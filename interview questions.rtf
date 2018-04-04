@@ -1,0 +1,706 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf200
+{\fonttbl\f0\fnil\fcharset0 LucidaGrande;\f1\fnil\fcharset0 HelveticaNeue;\f2\fswiss\fcharset0 Helvetica;
+\f3\fswiss\fcharset0 ArialMT;}
+{\colortbl;\red255\green255\blue255;\red85\green85\blue85;\red0\green0\blue0;\red0\green0\blue0;
+\red84\green84\blue84;}
+{\*\expandedcolortbl;;\csgray\c40782;\csgray\c0\c0;\cssrgb\c0\c0\c0;
+\csgenericrgb\c33000\c33000\c33000;}
+\vieww10800\viewh8400\viewkind0
+\pard\tx186\li186\fi-187\pardirnatural\partightenfactor0
+
+\f0\fs26 \cf2 \cb3 \uc0\u9662 
+\f1 \cf0 	Set 1\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+\cf0 	
+\f2 \'95
+\f1 	What are some ways to support newer API methods or classes while maintaining backward compatibility?\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\f3\fs26\fsmilli13333 \cf4 \expnd0\expndtw0\kerning0
+if #available(iOS 8, *, *) \{\
+ self.view.convertPoint(.Zero, toCoordinateSpace:anotherView) \
+\} else \{ \
+ self.view.convertPoint(CGPointZero, toView:anotherView)\
+\}\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\f1\fs26 \cf0 \kerning1\expnd0\expndtw0 	
+\f2 \'95
+\f1 	Difference between frame and bounds?\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 The bounds of an UIView is the rectangle, expressed as a location (x,y) and size (width,height) relative to its own coordinate system (0,0). The frame of an UIView is the rectangle, expressed as a location (x,y) and size (width,height) relative to the superview it is contained within.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	List out the different app states?\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 Not running: The app has not been launched or was running but was terminated by the system.\
+Inactive: The app is running in the foreground but is currently not receiving events. (It may be executing other code though.) An app usually stays in this state only briefly as it transitions to a different state.\
+Active: The app is running in the foreground and is receiving events. This is the normal mode for foreground apps.\
+Background: The app is in the background and executing code. Most apps enter this state briefly on their way to being suspended. However, an app that requests extra execution time may remain in this state for a period of time. In addition, an app being launched directly into the background enters this state instead of the inactive state.\
+Suspended: The app is in the background but is not executing code. The system moves apps to this state automatically and does not notify them before doing so. While suspended, an app remains in memory but does not execute any code. When a low-memory condition occurs, the system may purge suspended apps without notice to make more space for the foreground app.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	What is ARC and how is it different from Garbage collection?\
+	
+\f2 \'95
+\f1 	Explain unwind segue\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 An unwind segue moves backward through one or more segues to return the user to a scene managed by an existing view controller.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	Explain how to add frameworks in Xcode project without a dependency manager?\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 First, choose the project file from the project navigator on the left side of the project window\
+\pard\li906\pardirnatural\partightenfactor0
+\cf5 \
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+\cf5 Then choose the target where you want to add frameworks in the project settings editor\
+\pard\li906\pardirnatural\partightenfactor0
+\cf5 \
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+\cf5 Choose the \'93Build Phases\'94 tab, and select \'93Link Binary With Libraries\'94 to view all of the frameworks\
+\pard\li906\pardirnatural\partightenfactor0
+\cf5 \
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+\cf5 To add frameworks click on \'93+\'94 sign below the list select framework and click on add button.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	Explain what Lazy stored properties are and when they are useful\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 Lazy stored properties are used for a property whose initial values are not set until the first time it is used. You can declare a lazy stored stored property by writing the lazy modifier before its declaration. Lazy properties are useful when the initial value of a property is reliant on outside factors whose values are unknown.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	Where do we use dependency injection?\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 We use a storyboard or xib in our iOS app, then we created IBOutlets. IBOutlet is a property related to a view. These are injected into the view controller when it is instantiated, which is essentially a form of Dependency Injection. There are forms of dependency injection: constructor, property and method.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	What is the difference between method overriding and method overloading?\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 Overriding is when you create a subclass with a function identical (or near identical) to one in its superclass. Whereas overloading is when a function of the same name takes a different type of argument. \
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	Explain what is the defer keyword?\'a0\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 defer keyword which provides a block of code that will be executed in the case when execution is leaving the current scope.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	What are benefits of Guard?\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 There are two big benefits to guard. One is avoiding the pyramid of doom, as others have mentioned\uc0\u8202 \'97\u8202 lots of annoying if let statements nested inside each other moving further and further to the right. The other benefit is provide an early exit out of the function using break or using return.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	What is the difference fileprivate, private, internal, and public, private(set) access level?\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 fileprivate is accessible within the current file, private is accessible within the current declaration.\
+\pard\li906\pardirnatural\partightenfactor0
+\cf5 \
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+\cf5 public private(set) means getter is public, but the setter is private.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	What is Downcasting?\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 When we\'92re casting an object to another type in Objective-C, it\'92s pretty simple since there\'92s only one way to do it. In Swift, though, there are two ways to cast\uc0\u8202 \'97\u8202 one that\'92s safe and one that\'92s not .\
+\pard\li906\pardirnatural\partightenfactor0
+\cf5 \
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+\cf5 as used for upcasting and type casting to bridged type\
+as? used for safe casting, return nil if failed\
+as! used to force casting, crash if failed. should only be used when we know the downcast will succeed.\
+\pard\tx186\li186\fi-187\pardirnatural\partightenfactor0
+
+\f0\fs26 \cf2 \uc0\u9662 
+\f1 \cf0 	Set 2\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+\cf0 	
+\f2 \'95
+\f1 	What is Synchronous vs. Asynchronous\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 These terms describe when a function will return control to the caller, and how much work will have been done by that point. A synchronous function returns only after the completion of a task that it orders. An asynchronous function, on the other hand, returns immediately, ordering the task to be done but not waiting for it. Thus, an asynchronous function does not block the current thread of execution from proceeding on to the next function.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	What is a managed object context ?\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 A managed object context represents a single object space, or scratch pad, in a Core Data application.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	What is intrinsic content size?\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 Every view that contains content can calculate its intrinsic content size. The intrinsic content size is calculated by a method on every UIView instance. This method returns a CGSize instance.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	Explain Polymorphism\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 Polymorphism is the ability of a class instance to be substituted by a class instance of one of its subclasses.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	Explain In-app Purchase products and subscriptions\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 Consumable products: can be purchased more than once and used items would have to re-purchase.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	Explain what a Sequence is in Swift\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 Sequence is a basic type in Swift for defining an aggregation of elements that distribute sequentially in a row. All collection types inherit from Sequence such as Array, Set, Dictionary.\
+\pard\tx186\li186\fi-187\pardirnatural\partightenfactor0
+
+\f0\fs26 \cf2 \uc0\u9662 
+\f1 \cf0 	Set 3\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+\cf0 	
+\f2 \'95
+\f1 	What is the difference between Any and AnyObject?\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 ANY can represent an instance of any type at all, including function types and optional types. AnyObject can represent an instance of any class type.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	What is Continuous Integration?\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 Continuous integration allows us to get early feedback when something is going wrong during application development. There are a lot of continuous integration tools available.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	What is encapsulation?\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 Encapsulation is an object-oriented design principle and hides the internal states and functionality of objects. That means the objects keep their state information private.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	Closures - value or reference types?\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 Closures are reference types. If a closure is assigned to a variable and the variable is copied into another variable, a reference to the same closure and its capture list is also copied.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	What is Singleton Pattern ? \
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 The Singleton design pattern ensures that only one instance exists for a given class and that there\'92s a global access point to that instance. It usually uses lazy loading to create the single instance when it\'92s needed the first time.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	Explain MVVM\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 UIKit independent representation of your View and its state. The View Model invokes changes in the Model and updates itself with the updated Model, and since we have a binding between the View and the View Model, the first is updated accordingly.\
+Your view model will actually take in your model, and it can format the information that\'92s going to be displayed on your view.\
+There is a more known framework called RxSwift. It contains RxCocoa, which are reactive extensions for Cocoa and CocoaTouch.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	Explain generics in Swift ?\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 Generics create code that does not get specific about underlying data types. \
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	An Optional is actually a type, what data structure is it? Enum? Class? Struct?\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 an optional is an enum with two cases; none, or nil, and some\
+\pard\li906\pardirnatural\partightenfactor0
+\cf5 \
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+\cf5 enum Optional<T> \{\
+  case none\
+  case some( T )\
+\}\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	Explain final keyword into the class ?\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 By adding the keyword final in front of the method name, we prevent the method from being overridden. If we can replace the final class keyword with a single word static and get the same behavior.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	What is the difference open & public access level ?\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 open allows other modules to use the class and inherit the class; for members, it allows others modules to use the member and override it.\
+public only allows other modules to use the public classes and the public members. Public classes can no longer be subclassed, nor public members can be overridden.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	REST, HTTP, JSON\uc0\u8202 \'97\u8202 What\'92s that?\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 HTTP is the application protocol, or set of rules, web sites use to transfer data from the web server to client. The client (your web browser or app) use to indicate the desired action:\
+\pard\li906\pardirnatural\partightenfactor0
+\cf5 \
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+\cf5 GET: Used to retrieve data, such as a web page, but doesn\'92t alter any data on the server.\
+HEAD: Identical to GET but only sends back the headers and none of the actual data.\
+POST: Used to send data to the server, commonly used when filling a form and clicking submit.\
+PUT: Used to send data to the specific location provided.\
+DELETE: Deletes data from the specific location provided.\
+REST, or REpresentational State Transfer, is a set of rules for designing consistent, easy-to-use and maintainable web APIs.\
+\pard\li906\pardirnatural\partightenfactor0
+\cf5 \
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+\cf5 JSON stands for JavaScript Object Notation; it provides a straightforward, human-readable and portable mechanism for transporting data between two systems. Apple supplies the JSONSerialization class to help convert your objects in memory to JSON and vice-versa.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	Explain the Internal keyword ?\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 Internal access enables entities to be used within any source file from their defining module, but not in any source file outside of the module.\
+\pard\li906\pardirnatural\partightenfactor0
+\cf5 \
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+\cf5 Internal access is the default level of access. So even though we haven\'92t been writing any access control specifiers in our code, our code has been at an internal level by default.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	Differences between a struct and a class?\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 Both class and structure can do:\
+Define properties to store values\
+Define methods to provide functionality\
+Be used in an extension\
+Conform to protocols\
+Define intialisers\
+\pard\li906\pardirnatural\partightenfactor0
+\cf5 \
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+\cf5 Only class can do:\
+Inheritance\
+Type casting\
+Define deinitialisers\
+Allow reference counting for multiple references.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	What is the difference Non-Escaping and Escaping Closures ?\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 Escaping closure means, inside the function, you can still run the closure (or not); the extra bit of the closure is stored some place that will outlive the function. There are several ways to have a closure escape its containing function:\
+Asynchronous execution: If you execute the closure asynchronously on a dispatch queue, the queue will hold onto the closure for you. You have no idea when the closure will be executed and there\'92s no guarantee it will complete before the function returns.\
+Storage: Storing the closure to a global variable, property, or any other bit of storage that lives on past the function call means the closure has also escaped.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	Explain [weak self] and [unowned self] in the context of a closure?\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 "unowned does the same as weak with one exception: The variable will not become nil and therefore the variable must not be an optional.\
+\pard\li906\pardirnatural\partightenfactor0
+\cf5 \
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+\cf5 But when you try to access the variable after its instance has been deallocated. That means, you should only use unowned when you are sure, that this variable will never be accessed after the corresponding instance has been deallocated.\
+\pard\li906\pardirnatural\partightenfactor0
+\cf5 \
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+\cf5 However, if you don\'92t want the variable to be weak AND you are sure that it can\'92t be accessed after the corresponding instance has been deallocated, you can use unowned.\
+\pard\li906\pardirnatural\partightenfactor0
+\cf5 \
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+\cf5 By declaring it [weak self] you get to handle the case that it might be nil inside the closure at some point and therefore the variable must be an optional. A case for using [weak self] in an asynchronous network request, is in a view controller where that request is used to populate the view."\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	What is iOS 11 SDK Features for Developers ?\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 New MapKit Markers\
+Configurable File Headers\
+Block Based UITableView Updates\
+MapKit Clustering\
+Closure Based KVO\
+Vector UIImage Support\
+New MapKit Display Type\
+Named colors in Asset Catalog\
+Password Autofill\
+Face landmarks, Barcode and Text Detection\
+Multitasking using the new floating Dock, slide-over apps, pinned apps, and the new App Switcher\
+Location Permission: A flashing blue status bar anytime an app is collecting your location data in the background. Updated locations permissions that always give the user the ability to choose only to share location while using the app.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	What is the three major debugging improvements in Xcode 8 ?\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 The View Debugger lets us visualize our layouts and see constraint definitions at runtime. Although this has been around since Xcode 6, Xcode 8 introduces some handy new warnings for constraint conflicts and other great convenience features.\
+The Thread Sanitizer is an all new runtime tool in Xcode 8 that alerts you to threading issues\uc0\u8202 \'97\u8202 most notably, potential race conditions.\
+The Memory Graph Debugger is also brand new to Xcode 8. It provides visualization of your app\'92s memory graph at a point in time and flags leaks in the Issue navigator.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	What is the Test Driven Development of three simple rules ?\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 You are not allowed to write any production code unless it is to make a failing unit test pass.\
+You are not allowed to write any more of a unit test than is sufficient to fail; and compilation failures are failures.\
+You are not allowed to write any more production code than is sufficient to pass the one failing unit test.\
+\pard\tx186\li186\fi-187\pardirnatural\partightenfactor0
+
+\f0\fs26 \cf2 \uc0\u9662 
+\f1 \cf0 	Set 4\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+\cf0 	
+\f2 \'95
+\f1 	Describe what \'93app thinning\'94 means ?\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 The store and operating system optimize the installation of iOS, tvOS, and watchOS apps by tailoring app delivery to the capabilities of the user\'92s particular device, with minimal footprint. This optimization, called app thinning, lets you create apps that use the most device features, occupy minimum disk space, and a\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	What are NSNotificationCenter and how does it work ?\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 NSNotificationCenter is what Apple has provided as an Observer Pattern in the Cocoa library . The basic idea is that a listener registers with a broadcaster using some predefined protocol. At some later point, the broadcaster is told to notify all of its listeners, where it calls some function on each of its listeners and passes certain arguments along. This allows for asynchronous message passing between two different objects that don\'92t have to know about one another, they just have to know about the broadcaster.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	What is Core Data ?\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 Core Data is not an ORM or object-relational mapper. Nor is it a database. Instead, Core Data is an object graph manager which also has the ability to persist object graphs to a persistent store, on a disk.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	What is the purpose of the reuseIdentifier ?	\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 Reusability of an already allocated object.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	Define atomic and nonatomic.	\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 Atomic is the default: if you don\'92t type anything, your property is atomic. An atomic property is guaranteed that if you try to read from it, you will get back a valid value. It does not make any guarantees about what that value might be, but you will get back good data, not just junk memory. What this allows you to do is if you have multiple threads or multiple processes pointing at a single variable, one thread can read and another thread can write. If they hit at the same time, the reader thread is guaranteed to get one of the two values: either before the change or after the change. What atomic does not give you is any sort of guarantee about which of those values you might get. Atomic is really commonly confused with being thread-safe, and that is not correct. You need to guarantee your thread safety other ways. However, atomic will guarantee that if you try to read, you get back some kind of value.\
+\pard\li906\pardirnatural\partightenfactor0
+\cf5 \
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+\cf5 On the flip side, non-atomic, as you can probably guess, just means, \'93don\'92t do that atomic stuff.\'94 What you lose is that guarantee that you always get back something. If you try to read in the middle of a write, you could get back garbage data. But, on the other hand, you go a little bit faster. Because atomic properties have to do some magic to guarantee that you will get back a value, they are a bit slower. If it is a property that you are accessing a lot, you may want to drop down to nonatomic to make sure that you are not incurring that speed penalty.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	Whats the difference between weak and strong ?\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 These keywords are related to reference counting and \'93denote ownership\'94, if you will. They help you eliminate retain-release cycles by limiting what objects increment the reference count for another object. A strong property is one where you increment the reference count of the object. If object A has a strong reference to B, and no other object is referencing B, B has count 1 (A owns, or needs to exist B). Now, if B wants to have a reference to A, we would want to use a weak reference. Weak references don\'92t increment the reference count of the object. So in this particular case, if A has no other objects referencing it but B, A\'92s count would be 0 given B\'92s weak reference.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	What is the difference between viewDidLoad and viewDidAppear? Which should you use to load data from a remote server to display in the view?\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 viewDidLoad is called when the view is loaded, whether from a Xib file, storyboard or programmatically created in loadView. viewDidAppear is called every time the view is presented on the device. Which to use depends on the use case for your data. If the data is fairly static and not likely to change then it can be loaded in viewDidLoad and cached. However, if the data changes regularly then using viewDidAppear to load it is better. In both situations, the data should be loaded asynchronously on a background thread to avoid blocking the UI.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	What\'92s the difference between using a delegate and notification?\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 Both are used for sending values and messages to interested parties. A delegate is for one-to-one communication and is a pattern promoted by Apple. In delegation, the class raising events will have a property for the delegate and will typically expect it to implement some protocol. The delegating class can then call the delegates protocol methods.\
+\pard\li906\pardirnatural\partightenfactor0
+\cf5 \
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+\cf5 Notification allows a class to broadcast events across the entire application to any interested parties. The broadcasting class doesn\'92t need to know anything about the listeners for this event, therefore notification is very useful in helping to decouple components in an application.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	Which is faster: for a search an NSArray or an NSSet?\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 When the order of the items in the collection is not important, NSSet offers better performance for finding items in the collection; the reason is that the NSSet uses hash values to find items (like a dictionary), while an array has to iterate over its entire contents to find a particular object.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	What\'92s accessibilityHint?\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 accessibilityHint describes the results of interacting with a user interface element. A hint should be supplied only if the result of an interaction is not obvious from the element\'92s label.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	What is Instruments?\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 Instrument is a powerful performance tuning tool to analyze that performance, memory footprint, smooth animation, energy usage, leaks and file/network activity.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	What is Deep Linking?\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 Deep linking is a way to pass data to your application from any platform like, website or any other application. By tapping once on link, you can pass necessary data to your application.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	What is an\'93app ID\'94 and a \'93bundle ID\'94 ?\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 A bundle ID is the identifier of a single app. For example, if your organization\'92s domain is {\field{\*\fldinst{HYPERLINK "http://xxx.com"}}{\fldrslt xxx.com}} and you create an app named Facebook, you could assign the string com.xxx.facebook as our app\'92s bundle ID.\
+\pard\li906\pardirnatural\partightenfactor0
+\cf5 \
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+\cf5 An App ID is a two-part string used to identify one or more apps from a single development team. You need Apple Developer account for an App ID.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	What is Factory method pattern?	\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 Factory method pattern makes the codebase more flexible to add or remove new types. To add a new type, we just need a new class for the type and a new factory to produce it like the following code. For more information check this out.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	What is CoreSpotlight?	\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 CoreSpotlight allows us to index any content inside of our app. While NSUserActivity is useful for saving the user\'92s history, with this API, you can index any data you like. It provides access to the CoreSpotlight index on the user\'92s device.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	What are layer objects?	\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 Layer objects are data objects which represent visual content and are used by views to render their content. Custom layer objects can also be added to the interface to implement complex animations and other types of sophisticated visual effects.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	Explain AVFoundation framework	\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 We can create, play audio and visual media. AVFoundation allows us to work on a detailed level with time-based audio-visual data. With it, we can create, edit, analyze, and re-encode media files. AVFoundation has two sets of API, one that\'92s video, and one that is audio.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	 What\'92s the difference between accessibilityLabel and accessibilityIdentifier?\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 accessibilityLabel is the value that\'92s read by VoiceOver to the end-user. As such, this should be a localized string. The text should also be capitalized. Because this helps with VoiceOver\'92s pronunciation. accessibilityLabel is used for testing and Visual Impaired users.\
+\pard\li906\pardirnatural\partightenfactor0
+\cf5 \
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+\cf5 accessibilityIdentifier identifies an element via accessibility, but unlike accessibilityLabel, accessibilityIdentifier's purpose is purely to be used as an identifier for UI Automation tests. We use a value for testing process.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	Explain Property Observer\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 A property observer observes and responds to changes in a property\'92s value. With property observer, we don\'92t need to reset the controls, every time attributes change.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	What\'92s the difference between a xib and a storyboard?\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 Both are used in Xcode to layout screens (view controllers). A xib defines a single View or View Controller screen, while a storyboard shows many view controllers and also shows the relationship between them.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	List out what the different control statements used used in Swift, return is one of them.\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 Continue, Break, Fallthrough and Return. However, while it\'92s important to know these control statements, what would really impress an interviewer is being able to have a dialogue around how each of you uses these controls, which you use most often, etc.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	Why should we hire you?	\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 Focus on code in the interview. You want to present your skills, but ultimately the company is interested in how savvy you are with code and the amount of time you spend on researching and learning more about it.\
+\pard\li906\pardirnatural\partightenfactor0
+\cf5 \
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+\cf5 Though questions and answers may be technical, it\'92s also important to remember to show your prospective employer that you\'92re a human. Add some color to technicality, throw in your favorite developer pun, and know your stuff - it\'92s a winning combination sure to land you the iOS gig of your dreams.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	What is Operator Overloading ? \
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 Operator overloading allows us to change how existing operators behave with types that both already exist.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	What is ABI ? 	\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 ABIs are important when it comes to applications that use external libraries. If a program is built to use a particular library and that library is later updated, you don\'92t want to have to re-compile that application (and from the end-user\'92s standpoint, you may not have the source). If the updated library uses the same ABI, then your program will not need to change.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	KVC\uc0\u8202 \'97\u8202 KVO, what do they mean?\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 KVC adds stands for Key-Value Coding. It\'92s a mechanism by which an object\'92s properties can be accessed using string\'92s at runtime rather than having to statically know the property names at development time.\
+\pard\li906\pardirnatural\partightenfactor0
+\cf5 \
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+\cf5 KVO stands for Key-Value Observing and allows a controller or class to observe changes to a property value. In KVO, an object can ask to be notified of any changes to a specific property, whenever that property changes value, the observer is automatically notified.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	What is difference between BDD and TDD ?	\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 The main difference between BDD and TDD is the fact that BDD test cases can be read by non-engineers, which can be very useful in teams.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	Please explain \'93Arrange-Act-Assert\'94	\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 AAA is a pattern for arranging and formatting code in Unit Tests. If we were to write XCTests each of our tests would group these functional sections, separated by blank lines:\
+\pard\li906\pardirnatural\partightenfactor0
+\cf5 \
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+\cf5 Arrange all necessary preconditions and inputs.\
+Act on the object or method under test.\
+Assert that the expected results have occurred.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	Explain Swift Standart Library Protocol ?	\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 There are a few different protocol. Equatable protocol, that governs how we can distinguish between two instances of the same type. That means we can analyze. If we have a specific value is in our array. The comparable protocol, to compare two instances of the same type\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	What is the difference SVN and Git ?	\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 SVN relies on a centralised system for version management. It\'92s a central repository where working copies are generated and a network connection is required for access.\
+\pard\li906\pardirnatural\partightenfactor0
+\cf5 \
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+\cf5 Git relies on a distributed system for version management. You will have a local repository on which you can work, with a network connection only required to synchronise.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	What is Alamofire ?	\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 Alamofire uses URL Loading System in the background, so it does integrate well with the Apple-provided mechanisms for all the network development. This means, It provides chainable request/response methods, JSON parameter and response serialization, authentication, and many other features. It has thread mechanics and execute requests on a background thread and call completion blocks on the main thread.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	Explain Swift Package Manager	\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 The Swift Package Manager will help to vastly improve the Swift ecosystem, making Swift much easier to use and deploy on platforms without Xcode such as Linux. The Swift Package Manager also addresses the problem of dependency hell that can happen when using many interdependent libraries.\
+\pard\li906\pardirnatural\partightenfactor0
+\cf5 \
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+\cf5 The Swift Package Manager only supports using the master branch. Swift Package Manager now supports packages with Swift, C, C++ and Objective-C.\
+\pard\tx360\tx546\li546\fi-547\pardirnatural\partightenfactor0
+
+\fs26 \cf0 	
+\f2 \'95
+\f1 	How is an inout parameter different from a regular parameter?\
+\pard\tx1466\tx2026\tx2586\tx3146\tx3706\tx4266\tx4826\tx5386\tx5946\tx6506\tx7066\tx7626\li906\pardirnatural\partightenfactor0
+
+\fs22 \cf5 A Inout passes by reference while a regular parameter passes by value.\
+}
