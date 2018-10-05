@@ -1,2 +1,2 @@
 # iOS-Questions
-A helping guide on studying for iOS Interview questions.
+A helping guide to study for iOS Interviews.
